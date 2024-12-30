@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reprogrammation Moteur</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+</head>
+<body class="hidden">
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Reprogrammation Moteur</h1>
+            <span class="close-btn">×</span>
+        </div>
+
+        <!-- Navigation -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="home">Accueil</button>
+            <button class="tab-btn" data-tab="manual">Manuel</button>
+            <button class="tab-btn" data-tab="presets">Presets</button>
+            <button class="tab-btn" data-tab="saved">Sauvegardé</button>
+        </div>
+
+        <!-- Page Accueil -->
+        <div id="home" class="tab-content active">
+            <div class="info-cards">
+                <div class="info-card temperature">
+                    <h3>Température Moteur</h3>
+                    <div class="gauge">
+                        <div class="gauge-fill"></div>
+                    </div>
+                    <div class="value">90°C</div>
+                </div>
+
+                <div class="info-card reliability">
+                    <h3>Fiabilité Moteur</h3>
+                    <div class="gauge">
+                        <div class="gauge-fill"></div>
+                    </div>
+                    <div class="value">100%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Manuel -->
+        <div id="manual" class="tab-content">
+            <div class="points-counter">
+                Points utilisés: <span class="points-value">0</span>/50
+            </div>
+
+            <div class="parameters">
+                <div class="parameter-group">
+                    <label>Couple moteur</label>
+                    <div class="slider-container">
+                        <input type="range" min="0" max="10" value="0" class="slider" data-param="couple">
+                        <span class="value">1</span>
+                    </div>
+                </div>
+
+                <div class="parameter-group">
+                    <label>Accélération</label>
+                    <div class="slider-container">
+                        <input type="range" min="0" max="10" value="0" class="slider" data-param="acceleration">
+                        <span class="value">1</span>
+                    </div>
+                </div>
+
+                <div class="parameter-group">
+                    <label>Vitesse maximale</label>
+                    <div class="slider-container">
+                        <input type="range" min="0" max="10" value="0" class="slider" data-param="vitesseMax">
+                        <span class="value">1</span>
+                    </div>
+                </div>
+
+                <div class="parameter-group">
+                    <label>Régime minimal</label>
+                    <div class="slider-container">
+                        <input type="range" min="0" max="10" value="0" class="slider" data-param="rpmMin">
+                        <span class="value">1</span>
+                    </div>
+                </div>
+
+                <div class="parameter-group">
+                    <label>Régime maximal</label>
+                    <div class="slider-container">
+                        <input type="range" min="0" max="10" value="0" class="slider" data-param="rpmMax">
+                        <span class="value">1</span>
+                    </div>
+                </div>
+
+                <div class="parameter-group">
+                    <label>Rapport de boîte</label>
+                    <div class="slider-container">
+                        <input type="range" min="0" max="10" value="0" class="slider" data-param="gearRatio">
+                        <span class="value">1</span>
+                    </div>
+                </div>
+
+                <div class="parameter-group">
+                    <label>Frein moteur</label>
+                    <div class="slider-container">
+                        <input type="range" min="0" max="10" value="0" class="slider" data-param="engineBraking">
+                        <span class="value">1</span>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="button apply-btn">Appliquer les modifications</button>
+                    <button class="button reset-btn">Réinitialiser le véhicule</button>
+                    <div class="save-config">
+                        <input type="text" placeholder="Nom de la configuration">
+                        <button class="button save-btn">Sauvegarder la configuration</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Presets -->
+        <div id="presets" class="tab-content">
+            <div class="preset-cards">
+                <div class="preset-card" data-preset="eco">
+                    <div class="preset-header">
+                        <h3>Éco</h3>
+                        <p>Optimisé pour la consommation</p>
+                    </div>
+                    <div class="preset-info">
+                        <span class="consumption">-8% consommation</span>
+                        <span class="points">28 points</span>
+                    </div>
+                </div>
+
+                <div class="preset-card" data-preset="sport">
+                    <div class="preset-header">
+                        <h3>Sport</h3>
+                        <p>Performance équilibrée</p>
+                    </div>
+                    <div class="preset-info">
+                        <span class="consumption">+12% consommation</span>
+                        <span class="points">36 points</span>
+                    </div>
+                </div>
+
+                <div class="preset-card" data-preset="racing">
+                    <div class="preset-header">
+                        <h3>Course</h3>
+                        <p>Performance maximale</p>
+                    </div>
+                    <div class="preset-info">
+                        <span class="consumption">+20% consommation</span>
+                        <span class="points">47 points</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Sauvegardé -->
+        <div id="saved" class="tab-content">
+            <div class="saved-maps">
+                <!-- Rempli dynamiquement -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
